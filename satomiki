@@ -1,6 +1,9 @@
 #!/bin/bash
 
-#行数のカウント
+＃使用ファイルダウンロード
+wget https://nlp100.github.io/data/popular-names.txt
+。
+＃行数のカウント
 wc -l popular-names.txt
 
 #タブをスペースに置換
