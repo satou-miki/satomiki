@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#行数のカウント
+wc -l popular-names.txt
+
+#タブをスペースに置換
+sed 's/\t/ /g' popular-names.txt
+
+#1列目をcol1.txtに，2列目をcol2.txtに保存
+cut -f 1 popular-names.txt > col1.txt
+
+#col1.txtとcol2.txtをマージ
+paste col1.txt col2.txt
+
+#先頭からN行を出力
+head popular-names.txt
+
+#末尾のN行を出力
+tail popular-names.txt
+
+#ファイルをN分割する
+split -l 1000 popular-names.txt
+
+#１列目の文字列の異なり
+cut -f 1 popular-names.txt | sort | uniq -c
+
+#各行を3コラム目の数値の降順にソート
+sort -r -k 3 -r popular-names.txt
+
+#各行の1コラム目の文字列の出現頻度を求め，出現頻度の高い順に並べる
+cut -f 1 popular-names.txt | sort | uniq -c | sort -k1nr
+
